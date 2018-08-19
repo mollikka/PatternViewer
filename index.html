@@ -17,6 +17,7 @@
     body {
       background-image: url('bg1.png');
       background-size: 600pt;
+      overflow: hidden;
     }
     #bg-switcher {
       position: absolute;
@@ -62,6 +63,12 @@
 
     var dragmode = NO_DRAG;
 
+    var main_element = 'body';
+
+    function event_move_reset() {
+      real_position_X = 0;
+      real_position_Y = 0;
+    }
 
     function event_move_start(pos_X, pos_Y, type) {
 
@@ -85,7 +92,7 @@
         move_last_Y = pos_Y;
         real_position_X += delta_X;
         real_position_Y += delta_Y;
-        $('body').css({ 'background-position-x':real_position_X,
+        $(main_element).css({ 'background-position-x':real_position_X,
                         'background-position-y':real_position_Y});
       }
     }
@@ -108,7 +115,7 @@
 
       real_position_X += speed_X;
       real_position_Y += speed_Y;
-      $('body').css({ 'background-position-x':real_position_X,
+      $(main_element).css({ 'background-position-x':real_position_X,
                       'background-position-y':real_position_Y});
 
       speed_X *= FRICTION;
@@ -124,10 +131,12 @@
         $('#bg-switcher').addClass('bg-switcher-animation');
         $('#bg-switcher').on({'animationend': function(e) {
           $(e.target).removeClass('bg-switcher-animation');
-          $('body').css({
+          $(main_element).css({
             'background-position-x':0,
             'background-position-y':0,
-            'background-image': $(e.target).css('background-image')});
+            'background-image': $(e.target).css('background-image')
+          });
+          event_move_reset();
         }});
         if (e.key == '1') {
           $('#bg-switcher').css({ 'background-image': 'url('+BACKGROUNDS[0]+')'});
