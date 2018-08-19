@@ -18,6 +18,26 @@
       background-image: url("bg1.png");
       background-size: 600pt;
     }
+    #bg-switcher {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-image: url('bg2.png');
+      background-size: 600pt;
+      transform: rotate(110deg);
+      transform-origin: 100% 100%;
+    }
+    .bg-switcher-animation {
+      display: block;
+      animation:spin-in 1s linear 1;
+    }
+    @keyframes spin-in {
+      from {
+        transform: rotate(110deg);
+      } to {
+        transform: rotate(0deg);
+      }
+    }
   </style>
   <script>
     //https://stackoverflow.com/a/4755579/3417477
@@ -36,6 +56,9 @@
     NO_DRAG = 0;
     MOUSE_DRAG = 1;
     TOUCH_DRAG = 2;
+
+    BACKGROUNDS = ['bg1.png', 'bg2.png', 'bg3.png'];
+
     var dragmode = NO_DRAG;
 
 
@@ -95,6 +118,27 @@
 
     $(document).ready(function() {
 
+      //CHOOSE BACKGROUND
+      $(document).on({'keypress': function(e) {
+        $('#bg-switcher').addClass('bg-switcher-animation');
+        $('#bg-switcher').on({'animationend': function(e) {
+          $(e.target).removeClass('bg-switcher-animation');
+          $('body').css({
+            'background-position-x':0,
+            'background-position-y':0,
+            'background-image': $(e.target).css('background-image')});
+        }});
+        if (e.key == '1') {
+          $('#bg-switcher').css({ 'background-image': 'url('+BACKGROUNDS[0]+')'});
+        }
+        if (e.key == '2') {
+          $('#bg-switcher').css({ 'background-image': 'url('+BACKGROUNDS[1]+')'});
+        }
+        if (e.key == '3') {
+          $('#bg-switcher').css({ 'background-image': 'url('+BACKGROUNDS[2]+')'});
+        }
+      }});
+
       $(document).on({'touchstart': function(e) {
         event_move_start(e.touches[0].pageX, e.touches[0].pageY, TOUCH_DRAG);
       }});
@@ -127,4 +171,5 @@
   </script>
 </head>
 <body>
+    <div id='bg-switcher'></div>
 </body>
