@@ -128,6 +128,25 @@
 
       //CHOOSE BACKGROUND
       $(document).on({'keypress': function(e) {
+        //if change already in progress, do nothing
+        if ($('#bg-switcher').hasClass('bg-switcher-animation')) {return;}
+
+        if (e.key == '1') {
+          $('#bg-switcher').css({ 'background-image': 'url('+BACKGROUNDS[0]+')'});
+        }
+        if (e.key == '2') {
+          $('#bg-switcher').css({ 'background-image': 'url('+BACKGROUNDS[1]+')'});
+        }
+        if (e.key == '3') {
+          $('#bg-switcher').css({ 'background-image': 'url('+BACKGROUNDS[2]+')'});
+        }
+
+        //if changing to same background, do nothing
+        if ($('#bg-switcher').css('background-image') == 
+            $(main_element).css('background-image')) {
+          return;
+        }
+
         $('#bg-switcher').addClass('bg-switcher-animation');
         $('#bg-switcher').on({'animationend': function(e) {
           $(e.target).removeClass('bg-switcher-animation');
@@ -138,15 +157,6 @@
           });
           event_move_reset();
         }});
-        if (e.key == '1') {
-          $('#bg-switcher').css({ 'background-image': 'url('+BACKGROUNDS[0]+')'});
-        }
-        if (e.key == '2') {
-          $('#bg-switcher').css({ 'background-image': 'url('+BACKGROUNDS[1]+')'});
-        }
-        if (e.key == '3') {
-          $('#bg-switcher').css({ 'background-image': 'url('+BACKGROUNDS[2]+')'});
-        }
       }});
 
       //START DRAG
