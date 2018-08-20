@@ -25,18 +25,17 @@
       height: 100%;
       background-image: url('bg2.png');
       background-size: 600pt;
-      transform: rotate(110deg);
-      transform-origin: 100% 100%;
+      opacity: 0;
     }
     .bg-switcher-animation {
       display: block;
-      animation:spin-in 1s linear 1;
+      animation:spin-in 1s ease-in-out 1;
     }
     @keyframes spin-in {
       from {
-        transform: rotate(110deg);
+        opacity: 0;
       } to {
-        transform: rotate(0deg);
+        opacity: 1;
       }
     }
   </style>
