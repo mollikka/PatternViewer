@@ -21,8 +21,6 @@ var bg_switcher = {
 
   dragmode: NO_DRAG,
 
-  main_element: 'body',
-
   event_move_reset: function() {
     this.real_position_X = 0;
     this.real_position_Y = 0;
@@ -49,7 +47,7 @@ var bg_switcher = {
       this.move_last_Y = pos_Y;
       this.real_position_X += this.delta_X;
       this.real_position_Y += this.delta_Y;
-      $(this.main_element).css({ 'background-position-x':this.real_position_X,
+      $('#bg-switcher-base').css({ 'background-position-x':this.real_position_X,
                       'background-position-y':this.real_position_Y});
     }
   },
@@ -71,7 +69,7 @@ var bg_switcher = {
 
     this.real_position_X += this.speed_X;
     this.real_position_Y += this.speed_Y;
-    $(this.main_element).css({  'background-position-x':this.real_position_X,
+    $('#bg-switcher-base').css({  'background-position-x':this.real_position_X,
                                 'background-position-y':this.real_position_Y});
     this.speed_X *= FRICTION;
     this.speed_Y *= FRICTION;
@@ -82,20 +80,21 @@ var bg_switcher = {
 
   choose_background: function(bg_id) {
     //if change already in progress, do nothing
-    if ($('#bg-switcher').hasClass('bg-switcher-animation')) {return;}
+    if ($('#bg-switcher-effect').hasClass('bg-switcher-animation')) {return;}
 
-    $('#bg-switcher').css({ 'background-image': 'url('+BACKGROUNDS[bg_id]+')'});
+
+    $('#bg-switcher-effect').css({ 'background-image': 'url('+BACKGROUNDS[bg_id]+')'});
 
     //if changing to same background, do nothing
-    if ($('#bg-switcher').css('background-image') == 
-        $(this.main_element).css('background-image')) {
+    if ($('#bg-switcher-effect').css('background-image') == 
+        $('#bg-switcher-base').css('background-image')) {
       return;
     }
 
-    $('#bg-switcher').addClass('bg-switcher-animation');
-    $('#bg-switcher').on({'animationend': $.proxy(function(e) {
+    $('#bg-switcher-effect').addClass('bg-switcher-animation');
+    $('#bg-switcher-effect').on({'animationend': $.proxy(function(e) {
       $(e.target).removeClass('bg-switcher-animation');
-      $(this.main_element).css({
+      $('#bg-switcher-base').css({
         'background-position-x':0,
         'background-position-y':0,
         'background-image': $(e.target).css('background-image')

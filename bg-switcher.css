@@ -1,9 +1,9 @@
-body {
+#bg-switcher-base {
   background-image: url('bg1.png');
   background-size: 600pt;
   overflow: hidden;
 }
-#bg-switcher {
+#bg-switcher-effect {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -13,9 +13,9 @@ body {
 }
 .bg-switcher-animation {
   display: block;
-  animation:spin-in 1s ease-in-out 1;
+  animation:bg-switcher-crossfade 1s ease-in-out 1;
 }
-@keyframes spin-in {
+@keyframes bg-switcher-crossfade {
   from {
     opacity: 0;
   } to {
