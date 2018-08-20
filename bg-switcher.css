@@ -1,18 +1,15 @@
 #bg-switcher-base {
   background-image: url('bg1.png');
   background-size: 600pt;
-  overflow: hidden;
 }
 #bg-switcher-effect {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-image: url('bg2.png');
   background-size: 600pt;
   opacity: 0;
 }
 .bg-switcher-animation {
-  display: block;
   animation:bg-switcher-crossfade 1s ease-in-out 1;
 }
 @keyframes bg-switcher-crossfade {
