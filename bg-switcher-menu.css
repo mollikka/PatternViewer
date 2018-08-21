@@ -1,0 +1,8 @@
+#bg-switcher-menu menuitem {
+  float: left;
+  clear: both;
+  background-color: white;
+  margin: 4px;
+  padding: 14px;
+  border-radius: 4px;
+}

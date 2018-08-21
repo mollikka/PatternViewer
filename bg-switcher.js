@@ -7,8 +7,6 @@ const NO_DRAG = 0;
 const MOUSE_DRAG = 1;
 const TOUCH_DRAG = 2;
 
-const BACKGROUNDS = ['bg1.png', 'bg2.png', 'bg3.png'];
-
 var bg_switcher = {
   move_last_X: 0,
   move_last_Y: 0,
@@ -78,12 +76,12 @@ var bg_switcher = {
     setTimeout($.proxy(this.newton_movement,this), 30);
   },
 
-  choose_background: function(bg_id) {
+  choose_background: function(bg_filename) {
     //if change already in progress, do nothing
     if ($('#bg-switcher-effect').hasClass('bg-switcher-animation')) {return;}
 
 
-    $('#bg-switcher-effect').css({ 'background-image': 'url('+BACKGROUNDS[bg_id]+')'});
+    $('#bg-switcher-effect').css({ 'background-image': 'url('+bg_filename+')'});
 
     //if changing to same background, do nothing
     if ($('#bg-switcher-effect').css('background-image') == 
@@ -101,17 +99,18 @@ var bg_switcher = {
       });
       this.event_move_reset();
     }, this)});
+  },
+
+  menu_add: function(bg_filename, menuitem_element) {
+    $(document).ready(function() {
+      menuitem_element.click(function(e) {
+        bg_switcher.choose_background(bg_filename);
+      });
+    });
   }
 };
 
 $(document).ready(function() {
-
-  //CHOOSE BACKGROUND
-  $(document).on({'keypress': function(e) {
-    if (e.key == '1') bg_switcher.choose_background(0);
-    if (e.key == '2') bg_switcher.choose_background(1);
-    if (e.key == '3') bg_switcher.choose_background(2);
-  }});
 
   //START DRAG
   $(document).on({'touchstart': function(e) {

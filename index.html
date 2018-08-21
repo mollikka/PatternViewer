@@ -14,9 +14,22 @@
         crossorigin='anonymous'></script>
 
   <script src='bg-switcher.js'></script>
+  <script>
+    $(document).ready(function() {
+      bg_switcher.menu_add('bg1.png', $('#bg-switcher-menu-1'));
+      bg_switcher.menu_add('bg2.png', $('#bg-switcher-menu-2'));
+      bg_switcher.menu_add('bg3.png', $('#bg-switcher-menu-3'));
+    });
+  </script>
   <link rel='stylesheet' type='text/css' href='bg-switcher.css'>
+  <link rel='stylesheet' type='text/css' href='bg-switcher-menu.css'>
 
 </head>
 <body id='bg-switcher-base'>
-    <div id='bg-switcher-effect'></div>
+  <div id='bg-switcher-effect'></div>
+  <menu id='bg-switcher-menu'>
+    <menuitem id='bg-switcher-menu-1'>Taivastelu</menuitem>
+    <menuitem id='bg-switcher-menu-2'>Vanhakaupunki</menuitem>
+    <menuitem id='bg-switcher-menu-3'>Aikamatkaava matoaalto</menuitem>
+  </menu>
 </body>
