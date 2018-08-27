@@ -1,8 +1,15 @@
 #bg-switcher-menu menuitem {
   float: left;
   clear: both;
-  background-color: white;
+  background-color: #d9d9d9;
   margin: 4px;
   padding: 14px;
-  border-radius: 4px;
+  border: solid 4px black;
+  border-radius: 10px;
+  max-width: 50%;
+  transition: background-color 2s;
+}
+
+.bg-switcher-menu-selected {
+  background-color: white !important;
 }

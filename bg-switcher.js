@@ -101,10 +101,16 @@ var bg_switcher = {
     }, this)});
   },
 
+  activate_menuitem: function(bg_filename, menuitem_element) {
+    bg_switcher.choose_background(bg_filename);
+    $('#bg-switcher-menu menuitem').removeClass('bg-switcher-menu-selected');
+    menuitem_element.addClass('bg-switcher-menu-selected');
+  },
+
   menu_add: function(bg_filename, menuitem_element) {
     $(document).ready(function() {
       menuitem_element.click(function(e) {
-        bg_switcher.choose_background(bg_filename);
+        bg_switcher.activate_menuitem(bg_filename, menuitem_element);
       });
     });
   }
