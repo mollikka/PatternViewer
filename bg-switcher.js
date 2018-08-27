@@ -19,6 +19,8 @@ var bg_switcher = {
 
   dragmode: NO_DRAG,
 
+  background_images: [],
+
   event_move_reset: function() {
     this.real_position_X = 0;
     this.real_position_Y = 0;
@@ -108,6 +110,10 @@ var bg_switcher = {
   },
 
   menu_add: function(bg_filename, menuitem_element) {
+    var preloaded_image = new Image();
+    preloaded_image.src = bg_filename;
+    //need to keep a reference to preloaded images or they might get released
+    this.background_images.push(preloaded_image);
     $(document).ready(function() {
       menuitem_element.click(function(e) {
         bg_switcher.activate_menuitem(bg_filename, menuitem_element);
