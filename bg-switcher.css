@@ -1,3 +1,6 @@
+body {
+  overscroll-behavior-y: contain;
+}
 #bg-switcher-base {
   background-color: black;
   background-size: 600pt;
