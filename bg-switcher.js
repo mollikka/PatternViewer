@@ -105,7 +105,7 @@ var bg_switcher = {
 
   activate_menuitem: function(bg_filename, menuitem_element) {
     bg_switcher.choose_background(bg_filename);
-    $('#bg-switcher-menu menuitem').removeClass('bg-switcher-menu-selected');
+    $('#bg-switcher-menu').find('*').removeClass('bg-switcher-menu-selected');
     menuitem_element.addClass('bg-switcher-menu-selected');
   },
 
