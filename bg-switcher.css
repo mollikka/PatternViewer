@@ -3,7 +3,6 @@ body {
 }
 #bg-switcher-base {
   background-color: black;
-  background-size: 600pt;
 }
 #bg-switcher-effect {
   position: absolute;
