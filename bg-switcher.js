@@ -79,10 +79,6 @@ var bg_switcher = {
   },
 
   choose_background: function(bg_filename, bg_size) {
-    //if change already in progress, do nothing
-    if ($('#bg-switcher-effect').hasClass('bg-switcher-animation')) {return;}
-
-
     $('#bg-switcher-effect').css({ 'background-image': 'url('+bg_filename+')',
                                    'background-size': bg_size+'pt'});
 
