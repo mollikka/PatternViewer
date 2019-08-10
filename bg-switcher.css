@@ -25,6 +25,11 @@ body {
 #bg-switcher-menu a{
   color: black;
 }
+#bg-switcher-plaque {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
 .bg-switcher-animation {
   animation:bg-switcher-crossfade 1s ease-in-out 1;
 }

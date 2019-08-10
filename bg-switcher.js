@@ -105,6 +105,7 @@ var bg_switcher = {
     bg_switcher.choose_background(menuitem_element.bg_filename, menuitem_element.bg_size);
     $('#bg-switcher-menu').find('*').removeClass('bg-switcher-menu-selected');
     menuitem_element.addClass('bg-switcher-menu-selected');
+    $('#bg-switcher-plaque h2').html(menuitem_element.display_name);
   },
 
   menu_add: function(bg_filename, display_name, bg_size) {
@@ -112,9 +113,12 @@ var bg_switcher = {
     preloaded_image.src = bg_filename;
     //need to keep a reference to preloaded images or they might get released
     this.background_images.push(preloaded_image);
+
     var menuitem_element = $('<a class="nav-link" href="#">'+display_name+'</a>');
     menuitem_element.bg_size = bg_size;
     menuitem_element.bg_filename = bg_filename;
+    menuitem_element.display_name = display_name;
+
     $('#bg-switcher-menu').append(menuitem_element);
     $(document).ready(function() {
       menuitem_element.click(function(e) {
