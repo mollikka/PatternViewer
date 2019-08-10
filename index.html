@@ -7,58 +7,42 @@
 
   <!--dank web technologies-->
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
-  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'
-        integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous'>
-  <script src='https://code.jquery.com/jquery-3.3.1.min.js'
-        integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8='
-        crossorigin='anonymous'></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
   <script src='bg-switcher.js'></script>
   <script>
     $(document).ready(function() {
-      bg_switcher.menu_add('taivastelu-800.png', $('#bg-switcher-menu-1'), 600);
-      bg_switcher.menu_add('kristallisirpale-800.png', $('#bg-switcher-menu-2'), 600);
-      bg_switcher.menu_add('matoaalto-800.png', $('#bg-switcher-menu-3'), 600);
-      bg_switcher.menu_add('vanhakaupunki-800.png', $('#bg-switcher-menu-4'), 600);
-      bg_switcher.menu_add('rad-birds-800.png', $('#bg-switcher-menu-7'), 600);
-      bg_switcher.menu_add('totuudensiemen-800.png', $('#bg-switcher-menu-8'), 600);
-      bg_switcher.menu_add('halftone-warpzone-1500.png', $('#bg-switcher-menu-10'), 600);
-      bg_switcher.menu_add('pyriittihitunen-800.png', $('#bg-switcher-menu-11'), 600);
-      bg_switcher.menu_add('syyshuiske-1000.png', $('#bg-switcher-menu-12'), 300);
-      bg_switcher.menu_add('kuplakimppu-1200.png', $('#bg-switcher-menu-15'), 600);
-      bg_switcher.menu_add('bamboomat-1000.png', $('#bg-switcher-menu-16'), 600);
-      bg_switcher.menu_add('luukutus-1000.png', $('#bg-switcher-menu-17'), 600);
-      bg_switcher.activate_menuitem('matoaalto-800.png', $('#bg-switcher-menu-3'), 600);
+      bg_switcher.menu_add('taivastelu-800.png', 'Taivaankehys', 600);
+      bg_switcher.menu_add('kristallisirpale-800.png', 'Kristallipallo', 600);
+      default_bg = bg_switcher.menu_add('matoaalto-800.png', 'Aikamatkaava matoaalto', 600);
+      bg_switcher.menu_add('vanhakaupunki-800.png', 'Vanhakaupunki', 600);
+      bg_switcher.menu_add('rad-birds-800.png', 'Rad Birds', 600);
+      bg_switcher.menu_add('totuudensiemen-800.png', 'Totuuden siemen', 600);
+      bg_switcher.menu_add('halftone-warpzone-1500.png', 'Pakastemarja', 600);
+      bg_switcher.menu_add('pyriittihitunen-800.png', 'Pyriittihitunen', 600);
+      bg_switcher.menu_add('syyshuiske-1000.png', 'Syyshuiske', 300);
+      //bg_switcher.menu_add('uusipuu.png', 'Uusipuu', 600);
+      //bg_switcher.menu_add('dispersio.png', 'Dispersio', 600);
+      bg_switcher.menu_add('kuplakimppu-1200.png', 'Kuplakimppu', 600);
+      bg_switcher.menu_add('bamboomat-1000.png', 'Bambumatto', 600);
+      bg_switcher.menu_add('luukutus-1000.png', 'Luukutus', 600);
+      //bg_switcher.menu_add('staples-1000.png', 'Silkkiniitti', 600);
+      bg_switcher.activate_menuitem(default_bg);
     });
   </script>
   <link rel='stylesheet' type='text/css' href='bg-switcher.css'>
-  <link rel='stylesheet' type='text/css' href='bg-switcher-menu.css'>
 
 </head>
-<body id='bg-switcher-base'>
-  <div id='bg-switcher-effect'></div>
-  <ul id='bg-switcher-menu'>
-    <li> <a id='bg-switcher-menu-1'>Taivaankehys</a>
-    </li>
-    <li> <a id='bg-switcher-menu-2'>Kristallipallo</a>
-    </li>
-    <li> <a id='bg-switcher-menu-3'>Aikamatkaava matoaalto</a>
-    </li>
-    <li> <a id='bg-switcher-menu-4'>Vanhakaupunki</a>
-    </li>
-    <li> <a id='bg-switcher-menu-7'>Rad Birds</a>
-    </li>
-    <li> <a id='bg-switcher-menu-8'>Totuuden siemen</a>
-    </li>
-    <li> <a id='bg-switcher-menu-10'>Pakastemarja</a>
-    </li>
-    <li> <a id='bg-switcher-menu-11'>Pyriittihitunen</a>
-    </li>
-    <li> <a id='bg-switcher-menu-12'>Syyshuiske</a>
-    </li>
-    </li> <a id='bg-switcher-menu-15'>Kuplakimppu</a>
-    </li> <a id='bg-switcher-menu-16'>Bambumatto</a>
-    </li> <a id='bg-switcher-menu-17'>Luukutus</a>
-    </li>
-  </ul>
+<body>
+
+<nav id="bg-switcher-menu" class="nav navbar navbar-light bg-light justify-content-center">
+</nav>
+
+</div>
+  <div id="bg-switcher-base">
+    <div id='bg-switcher-effect'></div>
+  </div>
 </body>

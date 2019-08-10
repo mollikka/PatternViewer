@@ -105,22 +105,27 @@ var bg_switcher = {
     }, this)});
   },
 
-  activate_menuitem: function(bg_filename, menuitem_element, bg_size) {
-    bg_switcher.choose_background(bg_filename, bg_size);
+  activate_menuitem: function(menuitem_element) {
+    bg_switcher.choose_background(menuitem_element.bg_filename, menuitem_element.bg_size);
     $('#bg-switcher-menu').find('*').removeClass('bg-switcher-menu-selected');
     menuitem_element.addClass('bg-switcher-menu-selected');
   },
 
-  menu_add: function(bg_filename, menuitem_element, bg_size) {
+  menu_add: function(bg_filename, display_name, bg_size) {
     var preloaded_image = new Image();
     preloaded_image.src = bg_filename;
     //need to keep a reference to preloaded images or they might get released
     this.background_images.push(preloaded_image);
+    var menuitem_element = $('<a class="nav-link" href="#">'+display_name+'</a>');
+    menuitem_element.bg_size = bg_size;
+    menuitem_element.bg_filename = bg_filename;
+    $('#bg-switcher-menu').append(menuitem_element);
     $(document).ready(function() {
       menuitem_element.click(function(e) {
-        bg_switcher.activate_menuitem(bg_filename, menuitem_element, bg_size);
+        bg_switcher.activate_menuitem(menuitem_element);
       });
     });
+    return menuitem_element;
   }
 };
 
